@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <title>Images</title>
+</head>
+<body>
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="imageupload">Upload Image</a></li>
+    <li><a href="images">Images</a></li>
+    <li><a href="users">Users</a></li>
+</ul>
+<h2>Images</h2>
+<table border="1">
+    <tr>
+        <th>title</th>
+        <th>description</th>
+        <th>image</th>
+    </tr>
+    <tr th:each = "image: ${images}">
+        <td th:text="${image.title}"></td>
+        <td th:text="${image.description}"></td>
+        <td><img th:src="${'data:image/jpeg;charset=utf-8;base64,' + image.image}" alt=""></td>
+    </tr>
+</table>
+</body>
+</html>
